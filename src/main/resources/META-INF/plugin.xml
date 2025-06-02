@@ -5,17 +5,17 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Kotlin-todo-tracker</name>
+    <name>Kotlin TODO Tracker</name>
+    <version>1.0.0</version>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="https://www.google.com">Prince</vendor>
+    <vendor email="sainiprince608@gmail.com">Prince</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+    <description>
+        Highlights TODO comments in Kotlin files and lists them in a side panel.
+    </description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -24,6 +24,13 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="com.plugin.kotlintodotracker.kotlintodotracker.TodoHighlighter"/>
 
+        <toolWindow id="TODOs"
+                    anchor="right"
+                    factoryClass="com.plugin.kotlintodotracker.kotlintodotracker.TodoToolWindowFactory"
+                    secondary="true"/>
     </extensions>
+
+
 </idea-plugin>
